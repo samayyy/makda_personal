@@ -21,6 +21,16 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'otp',
+          to: '/otp1'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'login1',
+          to: '/login1'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'home',
           to: '/home'
         },

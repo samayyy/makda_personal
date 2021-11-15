@@ -1,6 +1,11 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
-    <p class="headsignup">Sign Up</p>
+    <div class="flexx1">
+        <NuxtLink to="/">
+            <Icon class="back-icon" icon="akar-icons:arrow-left" />
+        </NuxtLink>
+    </div>
+    <p class="headsignup">Login</p>
     <div class="logosignup1">
         <p class="logosignup2"><span class="bglogo">Logo</span></p>
         <div class="container">
@@ -8,8 +13,6 @@
                 <div class="container">
                     <div class="container">
                         <form class="form">
-                            <input class="formelement" type="text" placeholder="   Name">
-                            <br>
                             <input class="formelement" type="number" placeholder="   Phone">
                             <br>
                             <input class="formelement" type="password" placeholder="   Password">
@@ -19,19 +22,15 @@
                 </div>
             </div>
         </div>
-        <NuxtLink to="/otp"><button class="button"><span class="btntext">Get Started</span></button></NuxtLink>
-        <NuxtLink to="/login" >
-            <p class="link">Already an user?</p>
-        </NuxtLink>
+        <NuxtLink to="/otp"><button class="button"><span class="btntext">Login</span></button></NuxtLink>
     </div>
 </div>
-<!-- </div> -->
 </template>
 
 <script>
-// import { Icon } from '@iconify/vue2';
+import { Icon } from '@iconify/vue2';
 export default {
-    // components: { Icon }
+    components: { Icon }
 }
 </script>
 
@@ -50,6 +49,19 @@ export default {
     font-weight: 600;
     font-size: 28px;
     line-height: 42px;
+}
+
+.flexx1 {
+    display: flex;
+    flex-direction: ro  w;
+}
+
+.back-icon {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 27px;
+    top: 65px;
 }
 
 .logosignup2 {
@@ -105,7 +117,7 @@ input {
     left: 0;
     right: 0;
     margin: auto;
-    top: 520px;
+    top: 465px;
     background: #006CA9;
     border-radius: 20px;
 }
@@ -120,15 +132,5 @@ input {
 
     color: #FFFFFF;
 
-}
-
-.link {
-    top: 620px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateY(-50%);
-    text-align: center;
 }
 </style>
