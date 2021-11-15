@@ -2,7 +2,7 @@
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="flexx1">
         <NuxtLink to="/">
-        <Icon class="back-icon" icon="akar-icons:arrow-left" />
+            <Icon class="back-icon" icon="akar-icons:arrow-left" />
         </NuxtLink>
     </div>
     <p class="headsignup">Sign Up</p>
@@ -13,18 +13,9 @@
         <span class="otptext2">has been seen to <b>750683xxxx</b> </span></p>
     <div class="centered">
         <form class="form flexx">
-            <!-- <input v-model="amount" class="formelement pad"  type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="1"> -->
-            <input  v-for="(key, i) in  otpKeyFields" :key="i" :ref="`input-${i}`" v-model="key.value"  :data-length="key.length"  :data-index="i" class="formelement pad" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="1" @input="handleotpInput($event)"  >
-            <!-- <input class="formelement pad" type="number">
-            <input class="formelement" type="number"> -->
-
+            <input v-for="(key, i) in  otpKeyFields" :key="i" :ref="`input-${i}`" v-model="key.value" :data-length="key.length" :data-index="i" class="formelement pad" type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="1" @input="handleotpInput($event)">
         </form>
-
     </div>
-    <!-- </div>
-                </div>
-            </div>
-        </div> -->
     <NuxtLink to="/home"><button class="button"><span class="btntext">Get Started</span></button></NuxtLink>
 </div>
 </template>
@@ -34,30 +25,29 @@ import {
     Icon
 } from '@iconify/vue2';
 export default {
+    name: 'Otp1',
     components: {
         Icon
     },
-    data:  ()=> {
+    data: () => {
         return {
-        // Our input fields.
-        // length is the max char allowed
-        otpKeyFields: [{
-                length: 1,
-                value: ''
-            },
-            {
-                length: 1,
-                value: ''
-            },
-            {
-                length: 1,
-                value: ''
-            },
-            {
-                length: 1,
-                value: ''
-            },
-        ],
+            otpKeyFields: [{
+                    length: 1,
+                    value: ''
+                },
+                {
+                    length: 1,
+                    value: ''
+                },
+                {
+                    length: 1,
+                    value: ''
+                },
+                {
+                    length: 1,
+                    value: ''
+                },
+            ],
         }
     },
     computed: {
@@ -71,11 +61,8 @@ export default {
     },
     methods: {
         handleotpInput(e) {
-            // Grab input's value
             const value = e.target.value;
-            // Grab data-index value
             const index = parseInt(e.target.dataset.index);
-            // Grab data-length value
             const maxlength = e.target.dataset.length;
 
             if (this.otpKeyFields[index].value.length > maxlength) {
@@ -86,8 +73,6 @@ export default {
                 } catch (e) {}
                 return;
             }
-
-            // Shift focus to next input field if max length reached
             if (value.length >= maxlength) {
                 if (typeof this.otpKeyFields[index + 1] === 'undefined') {
                     e.preventDefault();
@@ -98,8 +83,6 @@ export default {
             }
         },
     },
-
-    
 }
 </script>
 
@@ -124,13 +107,15 @@ export default {
     font-size: 28px;
     line-height: 42px;
 }
-.back-icon{
+
+.back-icon {
     position: absolute;
-width: 25px;
-height: 25px;
-left: 27px;
-top: 65px;
+    width: 25px;
+    height: 25px;
+    left: 27px;
+    top: 65px;
 }
+
 .logosignup2 {
     left: 0;
     right: 0;

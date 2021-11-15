@@ -30,6 +30,7 @@
 <script>
 import { Icon } from '@iconify/vue2';
 export default {
+    name: 'Login1',
     components: { Icon }
 }
 </script>
@@ -97,7 +98,6 @@ export default {
     margin: auto;
     width: 70vw;
     height: 50px;
-    /* padding-bottom: 10px; */
     left: 0;
     right: 0;
     margin: auto;
@@ -113,7 +113,6 @@ input {
     position: absolute;
     width: 70vw;
     height: 60px;
-    /* left: 37px; */
     left: 0;
     right: 0;
     margin: auto;
@@ -128,9 +127,6 @@ input {
     font-weight: 600;
     font-size: 22px;
     line-height: 36px;
-    /* identical to box height */
-
     color: #FFFFFF;
-
 }
 </style>

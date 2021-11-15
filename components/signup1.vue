@@ -25,13 +25,11 @@
         </NuxtLink>
     </div>
 </div>
-<!-- </div> -->
 </template>
 
 <script>
-// import { Icon } from '@iconify/vue2';
 export default {
-    // components: { Icon }
+    name: 'Signup1'
 }
 </script>
 
