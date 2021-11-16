@@ -1,7 +1,7 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="flexx1">
-        <NuxtLink to="/">
+        <NuxtLink to="/signup">
             <Icon class="back-icon" icon="akar-icons:arrow-left" />
         </NuxtLink>
     </div>

@@ -1,13 +1,13 @@
 <template>
-  <signup1 />
+  <start1 />
 </template>
 
 <script>
-import signup1 from '../components/signup1'
+import start1 from '../components/start1'
 export default {
-  name: 'Signup',
+  name: 'start',
   components: {
-    signup1
+    start1
   }
 }
 </script>

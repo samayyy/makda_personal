@@ -114,10 +114,7 @@ input {
     font-weight: 600;
     font-size: 22px;
     line-height: 36px;
-    /* identical to box height */
-
     color: #FFFFFF;
-
 }
 
 .link {
