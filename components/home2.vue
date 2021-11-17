@@ -57,9 +57,7 @@ export default {
                 },
 
             ],
-            bgcolor: {
-                background: 'red'
-            }
+            
         }
     }
 }

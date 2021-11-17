@@ -34,6 +34,21 @@ export default {
           title: 'home',
           to: '/home'
         },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'allbets',
+          to: '/allbets'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'allresults',
+          to: '/allresults'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'pastresults',
+          to: '/pastresults'
+        },
       ],
       miniVariant: false,
       right: true,

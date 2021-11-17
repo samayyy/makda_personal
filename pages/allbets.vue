@@ -1,11 +1,16 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
+    <div class="flexx1">
+        <NuxtLink to="/home">
+            <Icon class="back-icon" icon="akar-icons:arrow-left" />
+        </NuxtLink>
+    </div>
     <div class="head1">Open Bets</div>
     <div class="open">
-        <div v-for="(value, index) in  1" :key="index" :data-index="index" class="card">
+        <div v-for="(value, index) in  card" :key="index" :data-index="index" class="card">
             <div class="d-flex justify-content-between">
-                <div class="name justify-self-start">{{card[index].name}}</div>
-                <div class="time justify-self-center">{{card[index].startTime}}</div>
+                <div class="name">{{value.name}}</div>
+                <div class="time">{{value.startTime}}</div>
             </div>
             <div class="d-flex justify-content-end">
                 <NuxtLink to="/games"><button class="button"><span class="btntext">View Bets</span></button></NuxtLink>
@@ -16,16 +21,21 @@
                 <div class="text1"> Harf</div>
             </div>
         </div>
-
     </div>
-    <NuxtLink to="/allbets"><button class="button2"><span class="btntext2">View All Bets</span></button></NuxtLink>
-
 </div>
 </template>
 
 <script>
+import {
+    Icon
+} from '@iconify/vue2';
 export default {
     name: 'Home4',
+
+    components: {
+        Icon
+    },
+
     data() {
         return {
             card: [{
@@ -81,33 +91,50 @@ export default {
 </script>
 
 <style scoped>
-.head1 {
+.back-icon {
     position: absolute;
-    height: 30px;
-    padding-left: 12px;
-    top: 660px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+    left: 27px;
+    top: 30px;
+}
+
+.head1 {
+    top: 40px;
+    position: absolute;
+    width: 108px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(-50%);
+    text-align: center;
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    color: #000000;
+    line-height: 42px;
+}
+
+.open {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .card {
-    position: absolute;
-    max-width: 320px;
+    max-width: 310px;
     width: 84vw;
     height: 104px;
-    margin-left: 12px;
-    top: 700px;
+    left: 0;
+    right: 0;
+    margin: auto;
     background: #FFFFFF;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
     padding: 10px 15px;
+    margin-bottom: 15px;
 }
 
 .name {
@@ -129,8 +156,9 @@ export default {
     line-height: 21px;
     display: flex;
     align-items: center;
-    padding-right: 5px;
+    /* text-align: end; */
     color: #8E8E8E;
+    padding-right: 5px;
 
 }
 
