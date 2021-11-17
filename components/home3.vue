@@ -1,15 +1,22 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="head1">Upcoimg Games</div>
-    <div class="upcoming d-flex">
-        <div v-for="(value, index) in  card.filter(card => card.status === 'live')" :key="index" :data-index="index" class="card">
-            <div class="card-text">
-                <div class="starttime">{{value.startTime}}</div>
-                <div class="name">{{value.name}}</div>
-                <div class="time">{{value.startTime}}-{{value.endTime}}</div>
-                <NuxtLink to="/games"><button class="button"><span class="btntext">Play</span></button></NuxtLink>
+    <div class="upcoming">
+        <div class="scrolling-wrapper">
+
+            <div v-for="(value, index) in  card.filter(card => card.status === 'live')" :key="index" :data-index="index" class="card">
+                <div class="card-text">
+                    <div class="starttime">{{value.startTime}}</div>
+                    <div class="name">{{value.name}}</div>
+                    <div class="time">{{value.startTime}}-{{value.endTime}}</div>
+                    <NuxtLink to="/games"><button class="button"><span class="btntext">Play</span></button></NuxtLink>
+                </div>
             </div>
+            
         </div>
+        <div v-if="isEmpty === 0">
+                <p class="card2"><span class="text-center">No live games at the moment. Come back later!</span></p>
+            </div>
     </div>
     <div class="head2">Timed Out Games</div>
     <div class="timed-out">
@@ -24,6 +31,9 @@
                 <hr>
             </div>
             <br>
+        </div>
+        <div v-if="isEmpty2 === 0">
+            <p class="n"><span class="text-center">No data found</span></p>
         </div>
     </div>
 
@@ -41,7 +51,7 @@ export default {
                     startTime: '07:30',
                     endTime: '08:30',
                     resultTime: '08:45',
-                    status: 'live',
+                    status: 'expired',
                 },
                 {
                     value: '',
@@ -49,7 +59,7 @@ export default {
                     startTime: '08:30',
                     endTime: '09:30',
                     resultTime: '09:45',
-                    status: 'live',
+                    status: 'expired',
 
                 },
                 {
@@ -58,7 +68,7 @@ export default {
                     startTime: '05:30',
                     endTime: '07:15',
                     resultTime: '07:30',
-                    status: 'expired',
+                    status: 'live',
 
                 },
                 {
@@ -67,7 +77,7 @@ export default {
                     startTime: '05:30',
                     endTime: '06:15',
                     resultTime: '06:30',
-                    status: 'expired',
+                    status: 'live',
 
                 },
                 {
@@ -84,10 +94,45 @@ export default {
 
         }
     },
+    computed: {
+        isEmpty() {
+            let count = 0;
+            for (const i of this.card) {
+                if (i.status === 'live') {
+                    count = count + 1;
+                }
+            }
+            return count;
+        },
+        isEmpty2() {
+            let count = 0;
+            for (const i of this.card) {
+                if (i.status === 'expired') {
+                    count = count + 1;
+                }
+            }
+            return count;
+        },
+    }
 }
 </script>
 
 <style scoped>
+.scrolling-wrapper {
+    padding-top: 75px;
+    /* padding-left: 12px; */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.scrolling-wrapper .card {
+    display: inline-block;
+    margin-right: 10px;
+}
+.scrolling-wrapper::-webkit-scrollbar {
+    display: none;
+}
 .head1 {
     position: absolute;
     height: 30px;
@@ -121,9 +166,9 @@ export default {
 }
 
 .upcoming {
-    position: absolute;
+    /* position: absolute; */
     padding-left: 12px;
-    top: 491px;
+    /* padding-top: 491px; */
 }
 
 .card {
@@ -135,6 +180,20 @@ export default {
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
     border-radius: 20px;
     margin-right: 5px;
+}
+
+.card2 {
+    max-width: 400px;
+    max-height: 160px;
+    width: 84vw;
+    height: 40vw;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .starttime {
@@ -264,6 +323,19 @@ export default {
     align-items: center;
     color: #ABABAB;
     padding-right: 24vw;
+}
+
+.n {
+    height: 27px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #ABABAB;
 }
 
 .resultTime {

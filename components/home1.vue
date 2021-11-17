@@ -225,7 +225,7 @@ hr {
 .banner {
     position: absolute;
     width: 90vw;
-    height: 133px;
+    height: 143px;
     left: 14px;
     top: 82px;
     background: #C4C4C4;

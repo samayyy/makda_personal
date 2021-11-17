@@ -1,7 +1,7 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="head1">Open Bets</div>
-    <div class="open">
+    <div v-if="isEmpty === 0" class="open" >
         <div v-for="(value, index) in  1" :key="index" :data-index="index" class="card">
             <div class="d-flex justify-content-between">
                 <div class="name justify-self-start">{{card[index].name}}</div>
@@ -18,6 +18,9 @@
         </div>
 
     </div>
+    <div v-if="isEmpty === 1">
+            <p class="card card2"><span class="text-center">You have not placed any bet yet</span></p>
+        </div>
     <NuxtLink to="/allbets"><button class="button2"><span class="btntext2">View All Bets</span></button></NuxtLink>
 
 </div>
@@ -28,6 +31,7 @@ export default {
     name: 'Home4',
     data() {
         return {
+            // card: {}
             card: [{
                     value: '',
                     name: 'Royal Rajasthan',
@@ -77,6 +81,15 @@ export default {
 
         }
     },
+     computed: {
+        isEmpty() {
+            let count = 0;
+            if (Object.keys(this.card).length === 0) {
+                count = 1;
+            }
+            return count;
+        }
+    }
 }
 </script>
 
@@ -99,7 +112,7 @@ export default {
 
 .card {
     position: absolute;
-    max-width: 320px;
+    max-width: 400px;
     width: 84vw;
     height: 104px;
     margin-left: 12px;
@@ -109,7 +122,10 @@ export default {
     border-radius: 12px;
     padding: 10px 15px;
 }
-
+.card2{
+    display: flex;
+    justify-content: center !important;
+}
 .name {
     font-family: Poppins;
     font-style: normal;
@@ -187,7 +203,7 @@ export default {
     background: #006CA9;
     border-radius: 20px;
     margin-left: 15px;
-    max-width: 320px;
+    max-width: 400px;
     width: 84vw;
     /* left: 0;
     right: 0;

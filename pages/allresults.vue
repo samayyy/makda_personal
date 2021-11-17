@@ -14,7 +14,7 @@
                         <div class="name">{{value.city}}</div>
                         <div class="d-flex justify-content-between pt-1">
                             <div class="date">{{value.date}}</div>
-                            <div class="time">{{value.startTime}} to {{value.endTime}}</div>
+                            <div class="time ">{{value.startTime}} to {{value.endTime}}</div>
                         </div>
                     </div>
                     <div class="circle" :class="{bg0: index%1==0, bg1: index%2==0, bg2: index%3 == 0,bg3: index%4==0}">{{value.number}}</div>
@@ -22,7 +22,11 @@
             </div>
         </div>
     </div>
-    <NuxtLink to="/pastresults"><button class="button"><span class="btntext">VIew Past Results</span></button></NuxtLink>
+    <div v-if="isEmpty === 1">
+            <p class="results card"><span class="text-center">No data found</span></p>
+        </div>
+
+    <NuxtLink to="/pastresults"><button :class="{button: isEmpty===0, button2: isEmpty===1}"><span class="btntext">VIew Past Results</span></button></NuxtLink>
 
 </div>
 </template>
@@ -38,6 +42,7 @@ export default {
     },
     data() {
         return {
+            // card: []
             card: [{
                     value: '',
                     city: 'Bikaner',
@@ -82,6 +87,15 @@ export default {
 
             ],
 
+        }
+    },
+    computed: {
+        isEmpty() {
+            let count = 0;
+            if (Object.keys(this.card).length === 0) {
+                count = 1;
+            }
+            return count;
         }
     }
 }
@@ -141,7 +155,7 @@ export default {
 }
 
 .card {
-    max-width: 320px;
+    max-width: 400px;
     width: 84vw;
     height: 84px;
     left: 0;
@@ -192,6 +206,7 @@ export default {
     display: flex;
     align-items: center;
     color: #000000;
+    justify-content: flex-end;
 }
 
 .bg0 {
@@ -226,19 +241,37 @@ export default {
     background: #006CA9;
     border-radius: 20px;
 }
-.btntext{
-    font-family: Poppins;
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 21px;
-/* identical to box height */
-
-display: flex;
-align-items: center;
-
-color: #FFFFFF;
+.button2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 304px;
+    height: 37px;
+    top: 190px;
+    background: #006CA9;
+    border-radius: 20px;
 }
+
+.btntext {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+}
+
 @media only screen and (max-width: 310px) {
     .circle {
         font-size: 20px;
