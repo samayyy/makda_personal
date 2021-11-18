@@ -2,7 +2,7 @@
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="flexx1">
         <NuxtLink to="/home">
-            <Icon class="back-icon" icon="akar-icons:arrow-left" />
+            <div class="back-icon" icon="akar-icons:arrow-left"></div>
         </NuxtLink>
     </div>
     <div class="head1">Open Bets</div>
@@ -23,22 +23,14 @@
         </div>
     </div>
     <div v-if="isEmpty === 1">
-            <p class="open card card2"><span class="text-center">You have not placed any bet yet</span></p>
-        </div>
+        <p class="open card card2"><span class="text-center">You have not placed any bet yet</span></p>
+    </div>
 </div>
 </template>
 
 <script>
-import {
-    Icon
-} from '@iconify/vue2';
 export default {
     name: 'Home4',
-
-    components: {
-        Icon
-    },
-
     data() {
         return {
             // card: {}
@@ -104,14 +96,6 @@ export default {
 </script>
 
 <style scoped>
-.back-icon {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: 27px;
-    top: 30px;
-}
-
 .head1 {
     top: 40px;
     position: absolute;
@@ -149,10 +133,12 @@ export default {
     padding: 10px 15px;
     margin-bottom: 15px;
 }
-.card2{
+
+.card2 {
     display: flex;
     justify-content: center !important;
 }
+
 .name {
     font-family: Poppins;
     font-style: normal;

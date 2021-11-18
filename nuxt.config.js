@@ -73,5 +73,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vue-functional-calendar', '@iconify/vue2']
   }
 }

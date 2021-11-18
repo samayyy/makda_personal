@@ -2,9 +2,10 @@
 <div class="opensheet">
     <form>
         <input v-model="opensheet.number" class="formelement" type="number" placeholder="Enter Number">
-        <input v-model="opensheet.count" class="formelement" type="number" placeholder="Enter Amount">
-        <NuxtLink to="/games"><button type="submit" class="button"><span class="btntext">Add</span>
-                <Icon icon="akar-icons:circle-plus" color="white" height="25" width="25" /></button></NuxtLink>
+        <input v-model="count" class="formelement" type="number" placeholder="Enter Amount">
+        <button class="button"><span class="btntext">Add</span>
+            <div class="bg"></div>
+        </button>
 
     </form>
     <div class="data">
@@ -15,34 +16,51 @@
 
         </div>
     </div>
-    {{openamount}}
+    <div class="bottom">
+        <div class="text2"><span>TOTAL: 0</span></div>
+        <NuxtLink to=/games> <button class="button2"><span class="btntext2">Submit</span></button></NuxtLink>
+    </div>
 </div>
 </template>
 
 <script>
-import {
-    Icon
-} from '@iconify/vue2';
 export default {
     name: 'Opensheet',
-    components: {
-        Icon
-    },
     data() {
         return {
             opensheet: {
-                    count: 0,
-                    number: null
-                }
+                count: '',
+                number: null
+            },
+            count: ''
         }
     },
-    computed: {
-        openamount() {
-            let count = 0;
-                count += this.opensheet.count;
-            return count;
-        }
-    }
+    //  const count3= 0;
+    //     watch:{
+    //     count(newcount) {
+
+    //     //   localStorage.count = newcount;
+    //     //   localStorage.count = count3;
+    //       localStorage.count = newcount + localStorage.count
+
+    //     }
+    //   },
+    //      mounted() {
+    //     if(localStorage.count) this.count = localStorage.count;
+    //   },
+
+    // methods: {
+
+    //      handleInput() {
+    //             this. count2 += this.opensheet.count;
+    //             alert(this.count2)
+    //     },
+    //      persist(){
+    //                 this.opensheet.count = event.target.value;
+    //                 this.handleInput()
+
+    //         }
+    // }
 }
 </script>
 
@@ -106,9 +124,19 @@ input:focus {
     color: #FFFFFF;
     margin-right: 25px;
 }
-.data{
+
+.bg {
+    width: 25px;
+    height: 25px;
+    background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2225%22%20height%3D%2225%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M12%208v4m0%200v4m0-4h4m-4%200H8%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.data {
     padding-top: 40px;
 }
+
 .head2 {
     width: 94px;
     height: 21px;
@@ -120,6 +148,51 @@ input:focus {
     color: #B7B7B7;
     display: flex;
     justify-content: center;
+}
 
+.bottom {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text2 {
+    height: 27px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+
+}
+
+.button2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 90vw;
+    max-width: 330px;
+    height: 40px;
+    background: #006CA9;
+    border-radius: 20px;
+    color: white !important;
+    text-decoration: none !important;
+    margin-top: 20px;
+}
+
+.btntext2 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
 }
 </style>

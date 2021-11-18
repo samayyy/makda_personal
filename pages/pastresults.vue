@@ -2,7 +2,7 @@
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="flexx1">
         <NuxtLink to="/allresults">
-            <Icon class="back-icon" icon="akar-icons:arrow-left" />
+            <div class="back-icon"></div>
         </NuxtLink>
     </div>
     <div class="head1">Past Results</div>
@@ -32,15 +32,11 @@
 
 <script>
 import {
-    Icon
-} from '@iconify/vue2';
-import {
     FunctionalCalendar
 } from 'vue-functional-calendar';
 export default {
     name: 'Pastresults',
     components: {
-        Icon,
         FunctionalCalendar
     },
     data() {
@@ -112,14 +108,6 @@ export default {
 </script>
 
 <style scoped>
-.back-icon {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: 27px;
-    top: 30px;
-}
-
 .head1 {
     top: 40px;
     position: absolute;

@@ -2,7 +2,7 @@
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="flexx1">
         <NuxtLink to="/signup">
-            <Icon class="back-icon" icon="akar-icons:arrow-left" />
+            <div class="back-icon" icon="akar-icons:arrow-left"></div>
         </NuxtLink>
     </div>
     <p class="headsignup">Sign Up</p>
@@ -21,14 +21,8 @@
 </template>
 
 <script>
-import {
-    Icon
-} from '@iconify/vue2';
 export default {
     name: 'Otp1',
-    components: {
-        Icon
-    },
     data: () => {
         return {
             otpKeyFields: [{
@@ -106,14 +100,6 @@ export default {
     font-weight: 600;
     font-size: 28px;
     line-height: 42px;
-}
-
-.back-icon {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: 27px;
-    top: 65px;
 }
 
 .logosignup2 {

@@ -2,7 +2,7 @@
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="flexx1">
         <NuxtLink to="/signup">
-            <Icon class="back-icon" icon="akar-icons:arrow-left" />
+            <div class="back-icon" icon="akar-icons:arrow-left"></div>
         </NuxtLink>
     </div>
     <p class="headsignup">Login</p>
@@ -28,10 +28,8 @@
 </template>
 
 <script>
-import { Icon } from '@iconify/vue2';
 export default {
     name: 'Login1',
-    components: { Icon }
 }
 </script>
 
@@ -54,15 +52,7 @@ export default {
 
 .flexx1 {
     display: flex;
-    flex-direction: ro  w;
-}
-
-.back-icon {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: 27px;
-    top: 65px;
+    flex-direction: ro w;
 }
 
 .logosignup2 {
