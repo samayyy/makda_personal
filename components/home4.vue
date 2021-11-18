@@ -95,10 +95,10 @@ export default {
 
 <style scoped>
 .head1 {
-    position: absolute;
-    height: 30px;
+    /* position: absolute; */
+    height: 25px;
     padding-left: 12px;
-    top: 660px;
+    padding-top: 25px;
     height: 30px;
     font-family: Poppins;
     font-style: normal;
@@ -111,12 +111,12 @@ export default {
 }
 
 .card {
-    position: absolute;
+    /* position: absolute; */
     max-width: 400px;
     width: 84vw;
     height: 104px;
     margin-left: 12px;
-    top: 700px;
+    margin-top: 25px;
     background: #FFFFFF;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
@@ -196,8 +196,8 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 8px;
-    position: absolute;
-    top: 820px;
+    /* position: absolute; */
+    margin-top: 25px;
     width: 304px;
     height: 37px;
     background: #006CA9;

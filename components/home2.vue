@@ -65,7 +65,8 @@ export default {
 
 <style scoped>
 .scrolling-wrapper {
-    padding-top: 50px;
+    padding-top: 40px;
+    padding-left: 12px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;

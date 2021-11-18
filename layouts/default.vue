@@ -49,6 +49,11 @@ export default {
           title: 'pastresults',
           to: '/pastresults'
         },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'games',
+          to: '/games'
+        },
       ],
       miniVariant: false,
       right: true,

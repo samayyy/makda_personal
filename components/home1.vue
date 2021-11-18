@@ -109,13 +109,21 @@
             </div>
         </div>
     </div>
-    <div class="banner"><span class="banner1">Banner</span></div>
+    <div class="banner"><img class="banner2" src="../static/Banner.png"></div>
+    <div class="scrolling-wrapper1">
+        <div class="img">
+            <img class="img1" src="../static/Group 245.svg" />
+            <img class="img1" src="../static/Group 246.svg" />
+        </div>
+    </div>
     <div class="pos2">
         <div class="d-flex justify-content-between">
             <div class="head2 justify-self-start">Top Results</div>
 
             <div class="head3 justify-self-end">
-                <NuxtLink to="/allresults"><div>View All</div></NuxtLink>
+                <NuxtLink to="/allresults">
+                    <div>View All</div>
+                </NuxtLink>
             </div>
         </div>
     </div>
@@ -173,7 +181,7 @@ hr {
 
 .pos1 {
     height: 44px;
-    top: 37px;
+    padding-top: 10px;
 }
 
 .logo {
@@ -223,13 +231,19 @@ hr {
 }
 
 .banner {
-    position: absolute;
+    /* position: relative; */
     width: 90vw;
-    height: 143px;
-    left: 14px;
-    top: 82px;
+    max-width: 500px;
+
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    margin-top: 23px;
     background: #C4C4C4;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    /* margin-left: 12px */
 }
 
 .banner1 {
@@ -249,12 +263,41 @@ hr {
     align-items: center;
     color: #000000;
 }
+.banner2{
+    width: 90vw;
+    max-width: 1000px;
+    height: 243px;
+}
+.scrolling-wrapper1 {
+    padding-top: 13px;
+    padding-left: 12px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+}
+
+.scrolling-wrapper1 .img {
+    display: inline-block;
+    margin-right: 5px;
+
+}
+
+.img1 {
+    width: 270px;
+    height: 221px;
+    margin-right: 10px;
+}
+
+.scrolling-wrapper1::-webkit-scrollbar {
+    display: none;
+}
 
 .pos2 {
-    height: 30px;
+    height: 25px;
     padding-left: 12px;
     padding-right: 12px;
-    padding-top: 190px;
+    padding-top: 30px;
     z-index: 1;
 }
 
@@ -282,5 +325,18 @@ hr {
     align-items: center;
     color: #006CA9;
     z-index: 10;
+}
+
+@media only screen and (min-width: 766px) {
+
+    .scrolling-wrapper1 {
+        padding-top: 13px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        display: flex;
+        justify-content: center;
+    }
+
 }
 </style>

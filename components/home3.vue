@@ -51,7 +51,7 @@ export default {
                     startTime: '07:30',
                     endTime: '08:30',
                     resultTime: '08:45',
-                    status: 'expired',
+                    status: 'live',
                 },
                 {
                     value: '',
@@ -68,7 +68,7 @@ export default {
                     startTime: '05:30',
                     endTime: '07:15',
                     resultTime: '07:30',
-                    status: 'live',
+                    status: 'expired',
 
                 },
                 {
@@ -86,7 +86,7 @@ export default {
                     startTime: '05:30',
                     endTime: '06:15',
                     resultTime: '06:30',
-                    status: 'expired',
+                    status: 'live',
 
                 },
 
@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 .scrolling-wrapper {
-    padding-top: 75px;
+    padding-top: 25px;
     /* padding-left: 12px; */
     overflow-x: scroll;
     overflow-y: hidden;
@@ -134,10 +134,10 @@ export default {
     display: none;
 }
 .head1 {
-    position: absolute;
+    /* position: absolute; */
     height: 30px;
     padding-left: 12px;
-    top: 445px;
+    padding-top: 22px;
     height: 30px;
     font-family: Poppins;
     font-style: normal;
@@ -153,7 +153,7 @@ export default {
     position: absolute;
     height: 30px;
     padding-left: 12px;
-    top: 880px;
+    top: 1190px;
     height: 30px;
     font-family: Poppins;
     font-style: normal;
@@ -186,7 +186,7 @@ export default {
     max-width: 400px;
     max-height: 160px;
     width: 84vw;
-    height: 40vw;
+    height: 35vw;
     background: #FFFFFF;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
     border-radius: 20px;
@@ -308,7 +308,7 @@ export default {
 .timed-out {
     position: absolute;
     padding-left: 12px;
-    top: 930px;
+    top: 1233px;
 }
 
 .name1 {
