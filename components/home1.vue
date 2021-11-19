@@ -112,8 +112,8 @@
     <div class="banner"><img class="banner2" src="../static/Banner.png"></div>
     <div class="scrolling-wrapper1">
         <div class="img">
-            <img class="img1" src="../static/Group 245.svg" />
-            <img class="img1" src="../static/Group 246.svg" />
+            <NuxtLink to="/patti5"><img class="img1" src="../static/Group 245.svg" /></NuxtLink>
+            <NuxtLink to="/patti8"><img class="img1" src="../static/Group 246.svg" /></NuxtLink>
         </div>
     </div>
     <div class="pos2">
@@ -263,11 +263,13 @@ hr {
     align-items: center;
     color: #000000;
 }
-.banner2{
+
+.banner2 {
     width: 90vw;
     max-width: 1000px;
     height: 243px;
 }
+
 .scrolling-wrapper1 {
     padding-top: 13px;
     padding-left: 12px;

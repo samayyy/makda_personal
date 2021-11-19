@@ -1,24 +1,34 @@
 <template>
 <div class="opensheet">
-    <form>
-        <input v-model="opensheet.number" class="formelement" type="number" placeholder="Enter Number">
-        <input v-model="count" class="formelement" type="number" placeholder="Enter Amount">
+    <form @submit.prevent="submit">
+        <input v-model="opensheet.number" class="formelement" type="number" placeholder="Enter Number" required>
+        <input v-model="opensheet.count" class="formelement" type="number" placeholder="Enter Amount" required>
         <button class="button"><span class="btntext">Add</span>
             <div class="bg"></div>
         </button>
 
     </form>
     <div class="data">
-        <div class="d-flex justify-content-center justify-items-between">
+        <div class="d-flex justify-content-evenly">
             <div class="head2">Number Type</div>
             <div class="head2">Number</div>
             <div class="head2">Amount</div>
 
         </div>
     </div>
+
+    <div v-for="(items, index) in opensheetAdded" :key="index">
+        <div class="data2">
+            <div class="d-flex justify-content-evenly">
+                <div class="head3">{{items.type}}</div>
+                <div class="head3">{{items.countAdded}}</div>
+                <div class="head3">{{items.numberAdded}}</div>
+            </div>
+        </div>
+    </div>
     <div class="bottom">
-        <div class="text2"><span>TOTAL: 0</span></div>
-        <NuxtLink to=/games> <button class="button2"><span class="btntext2">Submit</span></button></NuxtLink>
+        <div class="text2"><span>TOTAL: {{total}}</span></div>
+        <button class="button2"><span class="btntext2">Submit</span></button>
     </div>
 </div>
 </template>
@@ -29,38 +39,25 @@ export default {
     data() {
         return {
             opensheet: {
-                count: '',
-                number: null
+                count: null,
+                number: null,
+                type: 'jodi'
             },
-            count: ''
+            opensheetAdded: [],
+            total: 0
         }
     },
-    //  const count3= 0;
-    //     watch:{
-    //     count(newcount) {
-
-    //     //   localStorage.count = newcount;
-    //     //   localStorage.count = count3;
-    //       localStorage.count = newcount + localStorage.count
-
-    //     }
-    //   },
-    //      mounted() {
-    //     if(localStorage.count) this.count = localStorage.count;
-    //   },
-
-    // methods: {
-
-    //      handleInput() {
-    //             this. count2 += this.opensheet.count;
-    //             alert(this.count2)
-    //     },
-    //      persist(){
-    //                 this.opensheet.count = event.target.value;
-    //                 this.handleInput()
-
-    //         }
-    // }
+    methods: {
+        submit() {
+            const addData = {
+                countAdded: this.opensheet.count,
+                numberAdded: this.opensheet.number,
+                type: 'Jodi'
+            }
+            this.opensheetAdded.push(addData);
+            this.total = parseFloat(this.total) + parseFloat(addData.countAdded)
+        }
+    },
 }
 </script>
 
@@ -71,7 +68,6 @@ export default {
 }
 
 .formelement {
-
     width: 95%;
     max-width: 400px;
     height: 40px;
@@ -136,16 +132,32 @@ input:focus {
 .data {
     padding-top: 40px;
 }
-
+.data2 {
+    padding-top: 20px;
+}
 .head2 {
     width: 94px;
     height: 21px;
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 21px;
     color: #B7B7B7;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.head3 {
+    width: 94px;
+    height: 25px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
     display: flex;
     justify-content: center;
 }

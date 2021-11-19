@@ -1,69 +1,167 @@
 <template>
 <div>
     <div class="jantari">
-        <div class="text1">Andar</div>
+        <div class="text1 ">Andar</div>
         <div class="d-flex justify-content-around">
-            <div class="num">00</div>
-            <div class="num">01</div>
-            <div class="num">02</div>
-            <div class="num">03</div>
-            <div class="num">04</div>
-
+            <div v-for="(items,i) in andar.slice(0, 4)" :key="i">
+                <div class="num">{{items.num}}</div>
+            </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="index in 5" :key="index">
-                <input class="input" />
+            <div v-for="(items,index) in andar.slice(0, 4)" :key="index">
+                <input v-model="items.value" type="number" class="input" />
             </div>
 
         </div>
         <div class="d-flex justify-content-around p">
-            <div class="num">05</div>
-            <div class="num">06</div>
-            <div class="num">07</div>
-            <div class="num">08</div>
-            <div class="num">09</div>
+            <div v-for="(items,i) in andar.slice(5, 9)" :key="i">
+                <div class="num">{{items.num}}</div>
+            </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="index in 5" :key="index">
-                <input class="input" />
+            <div v-for="(items,index) in andar.slice(5, 9)" :key="index">
+                <input v-model="items.value" type="number" class="input" />
             </div>
         </div>
     </div>
     <div class="jantari">
         <div class="text1 ">Bahar</div>
         <div class="d-flex justify-content-around">
-            <div class="num">00</div>
-            <div class="num">01</div>
-            <div class="num">02</div>
-            <div class="num">03</div>
-            <div class="num">04</div>
-
+            <div v-for="(items,i) in bahar.slice(0, 4)" :key="i">
+                <div class="num">{{items.num}}</div>
+            </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="index in 5" :key="index">
-                <input class="input" />
+            <div v-for="(items,index) in bahar.slice(0, 4)" :key="index">
+                <input v-model="items.value" type="number" class="input" />
             </div>
 
         </div>
         <div class="d-flex justify-content-around p">
-            <div class="num">05</div>
-            <div class="num">06</div>
-            <div class="num">07</div>
-            <div class="num">08</div>
-            <div class="num">09</div>
+            <div v-for="(items,i) in bahar.slice(5, 9)" :key="i">
+                <div class="num">{{items.num}}</div>
+            </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="index in 5" :key="index">
-                <input class="input" />
+            <div v-for="(items,index) in bahar.slice(5, 9)" :key="index">
+                <input v-model="items.value" type="number" class="input" />
             </div>
         </div>
         <div class="bottom">
-            <div class="text2"><span>TOTAL: 0</span></div>
-            <NuxtLink to=/games><button class="button"><span class="btntext">Submit</span></button></NuxtLink>
+            <div class="text2"><span>TOTAL: {{total}}</span></div>
+            <NuxtLink to=/games> <button class="button"><span class="btntext">Submit</span></button></NuxtLink>
         </div>
     </div>
 </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            andar: [{
+                    num: '01',
+                    value: ""
+                },
+                {
+                    num: '02',
+                    value: ""
+                },
+                {
+                    num: '03',
+                    value: ""
+                },
+                {
+                    num: '04',
+                    value: ""
+                },
+                {
+                    num: '05',
+                    value: ""
+                },
+                {
+                    num: '06',
+                    value: ""
+                },
+                {
+                    num: '07',
+                    value: ""
+                },
+                {
+                    num: '08',
+                    value: ""
+                },
+                {
+                    num: '09',
+                    value: ""
+                },
+                {
+                    num: '00',
+                    value: ""
+                },
+            ],
+            bahar: [{
+                    num: '01',
+                    value: ""
+                },
+                {
+                    num: '02',
+                    value: ""
+                },
+                {
+                    num: '03',
+                    value: ""
+                },
+                {
+                    num: '04',
+                    value: ""
+                },
+                {
+                    num: '05',
+                    value: ""
+                },
+                {
+                    num: '06',
+                    value: ""
+                },
+                {
+                    num: '07',
+                    value: ""
+                },
+                {
+                    num: '08',
+                    value: ""
+                },
+                {
+                    num: '09',
+                    value: ""
+                },
+                {
+                    num: '00',
+                    value: ""
+                },
+            ],
+
+        }
+    },
+    computed: {
+        total() {
+            let value = 0;
+            let value2 = 0;
+            for (const field of this.andar) {
+                value = parseInt(value, 10) + parseInt((field.value || 0), 10)
+
+            }
+            for (const field of this.bahar) {
+                value2 = parseInt(value2, 10) + parseInt((field.value || 0), 10)
+
+            }
+            value = parseInt(value, 10) + parseInt(value2, 10)
+            return value;
+        }
+    },
+}
+</script>
 
 <style scoped>
 .jantari {

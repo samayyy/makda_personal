@@ -54,6 +54,21 @@ export default {
           title: 'games',
           to: '/games'
         },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'patti5',
+          to: '/patti5'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'patti8',
+          to: '/patti8'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'wallet',
+          to: '/wallet'
+        },
       ],
       miniVariant: false,
       right: true,
