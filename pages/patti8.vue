@@ -8,40 +8,40 @@
         <div class="back-icon3" icon="akar-icons:arrow-left" color="white"></div>
     </div>
     <div class="head2">8 PATTI</div>
-    <div class="patti5">
+    <div class="patti8">
         <div class="d-flex justify-content-center p">
-            <div v-for="(items,i) in patti5.slice(0, 4)" :key="i">
+            <div v-for="(items,i) in patti8.slice(0, 4)" :key="i">
                 <div class="num">{{items.num}}</div>
             </div>
         </div>
         <div class="d-flex justify-content-center ">
-            <div v-for="(items,index) in patti5.slice(0, 4)" :key="index">
+            <div v-for="(items,index) in patti8.slice(0, 4)" :key="index">
                 <input v-model="items.value" type="number" class="input" />
             </div>
         </div>
         <div class="d-flex justify-content-center p">
-            <div v-for="(items,i) in patti5.slice(4,8)" :key="i">
+            <div v-for="(items,i) in patti8.slice(4,8)" :key="i">
                 <div class="num">{{items.num}}</div>
             </div>
         </div>
         <div class="d-flex justify-content-center ">
-            <div v-for="(items,index) in patti5.slice(4, 8)" :key="index">
+            <div v-for="(items,index) in patti8.slice(4, 8)" :key="index">
                 <input v-model="items.value" type="number" class="input" />
             </div>
         </div>
     </div>
     <div class="bottom">
-        <div class="text2"><span>TOTAL: {{total}}</span></div>
+        <div class="text2"><span>TOTAL:  &#8377;{{total}}</span></div>
         <button class="button" @click="func"><span class="btntext">Submit</span></button>
     </div>
     <div v-if="total>0">
     <div v-show="modal_1" class="c-modal flexxx">
         <div class="modalhead">Congratulations</div>
         <div class="modaltext">Your bet has been placed</div>
-        <button type="submit" class="button3" @click="modal_1=!modal_1"><span class="btntext3">Continue</span></button>
+        <button type="submit" class="button3" @click="func2();"><span class="btntext3">Continue</span></button>
 
     </div>
-    <div v-show="modal_1" class="bg2" @click="modal_1=!modal_1"></div>
+    <div v-show="modal_1" class="bg2" @click="func2();"></div>
     </div>
 </div>
 </template>
@@ -51,7 +51,7 @@ export default {
     name: 'Patti',
     data() {
         return {
-            patti5: [{
+            patti8: [{
                     num: '01',
                     value: ""
                 },
@@ -90,16 +90,25 @@ export default {
     computed: {
         total() {
             let value = 0;
-            for (const field of this.patti5) {
+            for (const field of this.patti8) {
                 value = parseInt(value, 10) + parseInt((field.value || 0), 10)
             }
             return value;
         }
     },
     methods:{
-        func(){
-            if(this.total>0){
-            this.modal_1 = !this.modal_1
+        func() {
+            if (this.total > 0) {
+                this.modal_1 = !this.modal_1
+            }
+
+        },
+        func2() {
+            if (this.total > 0) {
+                 this.modal_1 = !this.modal_1
+                for (const field of this.patti8) {
+                    field.value = "";
+                }
             }
         }
     }
@@ -165,7 +174,7 @@ export default {
     justify-content: center;
 }
 
-.patti5 {
+.patti8 {
     padding-top: 25px;
     left: 0;
     right: 0;

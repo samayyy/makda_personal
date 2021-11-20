@@ -10,7 +10,7 @@
     <div class="section1">
         <div class="d-flex justify-content-center align-items-center">
             <div class="icon"></div>
-            <div class="amount">$14000.00</div>
+            <div class="amount">&#8377;14000.00</div>
         </div>
         <div class="availablefunds">Available funds</div>
     </div>

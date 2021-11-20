@@ -21,14 +21,14 @@
         <div class="data2">
             <div class="d-flex justify-content-evenly">
                 <div class="head3">{{items.type}}</div>
-                <div class="head3">{{items.countAdded}}</div>
                 <div class="head3">{{items.numberAdded}}</div>
+                <div class="head3">{{items.countAdded}}</div>
             </div>
         </div>
     </div>
-    <form @submit.prevent="func">
+    <form @submit.prevent="func();">
         <div class="bottom">
-            <div class="text2"><span>TOTAL: {{total}}</span></div>
+            <div class="text2"><span>TOTAL:  &#8377;{{total}}</span></div>
             <button class="button2"><span class="btntext2">Submit</span></button>
         </div>
     </form>
@@ -36,10 +36,10 @@
         <div v-show="modal_1" class="c-modal flexxx">
             <div class="modalhead">Congratulations</div>
             <div class="modaltext">Your bet has been placed</div>
-            <button type="submit" class="button3" @click="modal_1=!modal_1"><span class="btntext3">Continue</span></button>
+            <button type="submit" class="button3" @click="func2();"><span class="btntext3">Continue</span></button>
 
         </div>
-        <div v-show="modal_1" class="bg2" @click="modal_1=!modal_1"></div>
+        <div v-show="modal_1" class="bg2" @click="func2();"></div>
     </div>
 </div>
 </template>
@@ -61,23 +61,30 @@ export default {
     },
     methods: {
         submit() {
-            const addData = {
-                countAdded: this.opensheet.count,
-                numberAdded: this.opensheet.number,
-                type: 'Jodi'
-            }
-            this.opensheetAdded.push(addData);
-            this.total = parseFloat(this.total) + parseFloat(addData.countAdded)
-            this.opensheet.count = null;
+            if (this.opensheet.number < 100 && this.opensheet.number >= 0 && this.opensheet.number.length<=2) {
+                const addData = {
+                    countAdded: this.opensheet.count,
+                    numberAdded: this.opensheet.number,
+                    type: 'Jodi'
+                }
+
+                this.opensheetAdded.push(addData);
+                this.total = parseFloat(this.total) + parseFloat(addData.countAdded)
+                this.opensheet.count = null;
                 this.opensheet.number = null;
+            }
         },
         func() {
             if (this.total > 0) {
-                this.total=0;
+                this.modal_1 = !this.modal_1;
+            }
+        },
+        func2() {
+            if (this.total > 0) {
+                this.total = 0;
                 this.modal_1 = !this.modal_1;
                 for (const items in this.opensheetAdded.slice('0,this.opensheetAdded.length+2')) {
                     this.opensheetAdded.pop(items);
-
                 }
             }
         }

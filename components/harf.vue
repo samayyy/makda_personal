@@ -48,17 +48,17 @@
             </div>
         </div>
         <div class="bottom">
-            <div class="text2"><span>TOTAL: {{total}}</span></div>
+            <div class="text2"><span>TOTAL:  &#8377;{{total}}</span></div>
             <button class="button" @click="func"><span class="btntext">Submit</span></button>
         </div>
         <div v-if="total>0">
             <div v-show="modal_1" class="c-modal flexxx">
                 <div class="modalhead">Congratulations</div>
                 <div class="modaltext">Your bet has been placed</div>
-                <button type="submit" class="button3" @click="modal_1=!modal_1"><span class="btntext3">Continue</span></button>
+                <button type="submit" class="button3" @click="func2();"><span class="btntext3">Continue</span></button>
 
             </div>
-            <div v-show="modal_1" class="bg2" @click="modal_1=!modal_1"></div>
+            <div v-show="modal_1" class="bg2" @click="func2();"></div>
         </div>
     </div>
 </div>
@@ -171,9 +171,21 @@ export default {
         }
     },
     methods:{
-        func(){
-            if(this.total>0){
-            this.modal_1 = !this.modal_1
+        func() {
+            if (this.total > 0) {
+                this.modal_1 = !this.modal_1
+            }
+
+        },
+        func2() {
+            if (this.total > 0) {
+                 this.modal_1 = !this.modal_1
+                for (const field of this.andar) {
+                    field.value = "";
+                }
+                for (const field2 of this.bahar) {
+                    field2.value = "";
+                }
             }
         }
     }

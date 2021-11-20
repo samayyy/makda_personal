@@ -78,7 +78,12 @@ export default {
     line-height: 22px;
     color: #0E0E0E;
 }
-
+.v-slide-group__wrapper {
+    contain: content;
+    display: inline;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
 .pos1 {
     margin-top: 20px;
 }

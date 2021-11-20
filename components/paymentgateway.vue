@@ -2,7 +2,7 @@
 <div>
     <form>
         <div class="head4">Enter Amount to deposit</div>
-        <input type="number" class="formelement" placeholder="$2000" required>
+        <input type="number" class="formelement" placeholder="2000" required>
         <button class="button"><span class="btntext">Make Payment</span></button>
     </form>
 </div>

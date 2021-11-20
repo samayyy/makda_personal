@@ -41,7 +41,7 @@
         </div>
         <form>
             <div class="head4">Enter Amount to deposit</div>
-            <input type="number" class="formelement" placeholder="$2000" required>
+            <input type="number" class="formelement" placeholder="2000" required>
             <div class="head4 height">Upload Transfer Screenshot</div>
             <input id="upload" type="file" accept="image/*" required hidden @change="onFileChanged" />
             <div class="screen">

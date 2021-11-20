@@ -14,17 +14,17 @@
         </div>
     </form>
     <div class="bottom">
-        <div class="text2"><span>TOTAL: {{total}}</span></div>
-        <button class="button" @click="func"><span class="btntext">Submit</span></button>
+        <div class="text2"><span>TOTAL:  &#8377;{{total}}</span></div>
+        <button class="button" @click="func(); "><span class="btntext">Submit</span></button>
     </div>
     <div v-if="total>0">
-    <div v-show="modal_1" class="c-modal flexxx">
-        <div class="modalhead">Congratulations</div>
-        <div class="modaltext">Your bet has been placed</div>
-        <button type="submit" class="button3" @click="modal_1=!modal_1"><span class="btntext3">Continue</span></button>
+        <div v-show="modal_1" class="c-modal flexxx">
+            <div class="modalhead">Congratulations</div>
+            <div class="modaltext">Your bet has been placed</div>
+            <button type="submit" class="button3" @click="func2();"><span class="btntext3">Continue</span></button>
 
-    </div>
-    <div v-show="modal_1" class="bg2" @click="modal_1=!modal_1"></div>
+        </div>
+        <div v-show="modal_1" class="bg2" @click="func2();"></div>
     </div>
 
 </div>
@@ -448,13 +448,22 @@ export default {
             return value;
         }
     },
-    methods:{
-        func(){
-            if(this.total>0){
-            this.modal_1 = !this.modal_1
+    methods: {
+        func() {
+            if (this.total > 0) {
+                this.modal_1 = !this.modal_1
+            }
+
+        },
+        func2() {
+            if (this.total > 0) {
+                 this.modal_1 = !this.modal_1
+                for (const field of this.jantari) {
+                    field.value = "";
+                }
             }
         }
-    }
+    },
 }
 </script>
 
@@ -565,6 +574,7 @@ input:focus {
     align-items: center;
     color: #FFFFFF;
 }
+
 .c-modal {
     position: fixed;
     top: 0;
@@ -613,6 +623,7 @@ input:focus {
     color: #4D4D4D;
 
 }
+
 .button3 {
     display: flex;
     flex-direction: row;
@@ -649,8 +660,9 @@ input:focus {
     opacity: 1;
     transition: .3s;
 }
-@media only screen and (max-width: 320px){
-    .c-modal{
+
+@media only screen and (max-width: 320px) {
+    .c-modal {
         width: 90%;
     }
 }
