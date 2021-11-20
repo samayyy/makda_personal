@@ -15,14 +15,13 @@
         <div class="availablefunds">Available funds</div>
     </div>
     <div class="section2">
-        <div class="d-flex" justify-content-around>
-            <button class="button">
+        <div class="d-flex justify-content-center">
+            <NuxtLink to="/deposit"><button class="button">
                 <div class="bg"></div><span class="btntext">Deposit</span>
-            </button>
-            <button class="button2">
+            </button></NuxtLink>
+            <NuxtLink to="/withdraw"><button class="button2">
                 <div class="bg2"></div><span class="btntext2">Withdraw</span>
-
-            </button>
+            </button></NuxtLink>
         </div>
 
     </div>
@@ -96,6 +95,7 @@
 
 .section2 {
     padding-top: 25px;
+    margin-left: 5px;
 }
 
 .button {
@@ -111,10 +111,12 @@
     right: 0;
     margin: auto;
     margin-top: 40px;
+    margin-right: 5px;
+
 }
 
 .btntext {
-    width: 69px;
+    /* width: 69px; */
     height: 27px;
     font-family: Nunito;
     font-style: normal;
@@ -122,6 +124,7 @@
     font-size: 18px;
     line-height: 27px;
     color: #FFFFFF;
+    padding-left: 5px;
 
 }
 
@@ -131,16 +134,16 @@
     background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2225%22%20height%3D%2225%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M12%208v4m0%200v4m0-4h4m-4%200H8%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
     background-size: 100%;
     background-repeat: no-repeat;
-    /* padding-right: 25px; */
 }
+
 .bg2 {
     width: 25px;
     height: 25px;
     background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2253%22%20height%3D%2253%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M16%2012H8%22%20stroke%3D%22%23006ca9%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22%20stroke%3D%22%23006ca9%22%20stroke-width%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
     background-size: 100%;
     background-repeat: no-repeat;
-    /* padding-right: 25px; */
 }
+
 .button2 {
     display: flex;
     flex-direction: row;
@@ -158,7 +161,7 @@
 }
 
 .btntext2 {
-    width: 75px;
+    /* width: 85px; */
     height: 27px;
     font-family: Nunito;
     font-style: normal;
@@ -166,6 +169,8 @@
     font-size: 18px;
     line-height: 27px;
     color: #006CA9;
+
+    padding-left: 5px;
 
 }
 </style>

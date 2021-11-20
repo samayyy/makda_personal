@@ -121,8 +121,7 @@ export default {
 
 .head2 {
     padding-top: 20px;
-    width: 80px;
-    height: 30px;
+    width: 100px;
     font-family: Nunito Sans;
     font-style: normal;
     font-weight: 600;
@@ -133,7 +132,8 @@ export default {
     left: 0;
     right: 0;
     margin: auto;
-    padding-left: 12px;
+    display: flex;
+    justify-content: center;
 }
 
 .patti5 {

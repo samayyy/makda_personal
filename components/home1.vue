@@ -272,7 +272,6 @@ hr {
 
 .scrolling-wrapper1 {
     padding-top: 13px;
-    padding-left: 12px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;

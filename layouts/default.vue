@@ -69,6 +69,16 @@ export default {
           title: 'wallet',
           to: '/wallet'
         },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'wallet',
+          to: '/withdraw'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'wallet',
+          to: '/deposit'
+        },
       ],
       miniVariant: false,
       right: true,
