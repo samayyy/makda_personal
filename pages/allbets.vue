@@ -219,9 +219,7 @@ export default {
     margin-left: 15px;
     max-width: 400px;
     width: 84vw;
-    /* left: 0;
-    right: 0;
-    margin: auto; */
+
 }
 
 .btntext2 {

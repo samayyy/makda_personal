@@ -1,7 +1,7 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="d-flex justify-content-between align-items-center pos">
-        <NuxtLink to="/home">
+        <NuxtLink to="/wallet">
             <div class="back-icon2" icon="akar-icons:arrow-left"></div>
         </NuxtLink>
         <div class="head1">Wallet</div>

@@ -26,9 +26,20 @@
             </div>
         </div>
     </div>
-    <div class="bottom">
-        <div class="text2"><span>TOTAL: {{total}}</span></div>
-        <button class="button2"><span class="btntext2">Submit</span></button>
+    <form @submit.prevent="func">
+        <div class="bottom">
+            <div class="text2"><span>TOTAL: {{total}}</span></div>
+            <button class="button2"><span class="btntext2">Submit</span></button>
+        </div>
+    </form>
+    <div>
+        <div v-show="modal_1" class="c-modal flexxx">
+            <div class="modalhead">Congratulations</div>
+            <div class="modaltext">Your bet has been placed</div>
+            <button type="submit" class="button3" @click="modal_1=!modal_1"><span class="btntext3">Continue</span></button>
+
+        </div>
+        <div v-show="modal_1" class="bg2" @click="modal_1=!modal_1"></div>
     </div>
 </div>
 </template>
@@ -44,7 +55,8 @@ export default {
                 type: 'jodi'
             },
             opensheetAdded: [],
-            total: 0
+            total: 0,
+            modal_1: false,
         }
     },
     methods: {
@@ -56,8 +68,21 @@ export default {
             }
             this.opensheetAdded.push(addData);
             this.total = parseFloat(this.total) + parseFloat(addData.countAdded)
+            this.opensheet.count = null;
+                this.opensheet.number = null;
+        },
+        func() {
+            if (this.total > 0) {
+                this.total=0;
+                this.modal_1 = !this.modal_1;
+                for (const items in this.opensheetAdded.slice('0,this.opensheetAdded.length+2')) {
+                    this.opensheetAdded.pop(items);
+
+                }
+            }
         }
     },
+
 }
 </script>
 
@@ -132,9 +157,11 @@ input:focus {
 .data {
     padding-top: 40px;
 }
+
 .data2 {
     padding-top: 20px;
 }
+
 .head2 {
     width: 94px;
     height: 21px;
@@ -146,7 +173,7 @@ input:focus {
     color: #B7B7B7;
     display: flex;
     justify-content: center;
-    
+
 }
 
 .head3 {
@@ -206,5 +233,97 @@ input:focus {
     display: flex;
     align-items: center;
     color: #FFFFFF;
+}
+
+.c-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 70%;
+    max-width: 300px;
+    height: 246px;
+    padding: 12px;
+    background-color: white;
+    border-radius: 5px;
+    /* background-color: rgba(#fff, .4); */
+    z-index: 10001;
+    opacity: 1;
+    transition: .6s;
+}
+
+.flexxx {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.modalhead {
+    width: 203px;
+    height: 38px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 38px;
+    color: #000000;
+}
+
+.modaltext {
+    width: 202px;
+    height: 25px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4D4D4D;
+
+}
+
+.button3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 80%;
+    max-width: 220px;
+    height: 40px;
+    background: #006CA9;
+    border-radius: 20px;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.btntext3 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+.bg2 {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 10000;
+    opacity: 1;
+    transition: .3s;
+}
+
+@media only screen and (max-width: 320px) {
+    .c-modal {
+        width: 90%;
+    }
 }
 </style>

@@ -2,7 +2,7 @@
 <div>
     <div v-if="$vuetify.breakpoint.smAndDown">
     <div class="d-flex justify-content-between align-items-center pos">
-        <NuxtLink to="/wallet">
+        <NuxtLink to="/withdraw">
             <div class="back-icon2" icon="akar-icons:arrow-left"></div>
         </NuxtLink>
         <div class="head1">Wallet</div>
@@ -10,9 +10,13 @@
     </div>
     </div>
     <form>
-        <div class="head4">Enter Amount to Withdraw</div>
-        <input type="number" class="formelement" placeholder="$2000" required>
-        <NuxtLink to="/bankdetails"><button class="button"><span class="btntext">Make Payment</span></button></NuxtLink>
+        <div class="head4">Enter Baank Account Details</div>
+        <input type="text" class="formelement" placeholder="Account Number" required>
+        <input type="text" class="formelement" placeholder="Account Holder Name" required>
+        <input type="text" class="formelement" placeholder="IFSC CODE" required>
+        <input type="text" class="formelement" placeholder="Branch" required>
+
+        <button class="button"><span class="btntext">Make Payment</span></button>
     </form>
 </div>
 </template>
