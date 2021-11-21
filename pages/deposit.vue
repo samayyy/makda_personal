@@ -7,13 +7,13 @@
         <div class="head1">Wallet</div>
         <div class="back-icon3" icon="akar-icons:arrow-left"></div>
     </div>
-    <v-tabs v-model="tab" slider-size="5" class="d-flex justify-content-center pos1">
+    <v-tabs v-model="tab" slider-size="5" class="d-flex justify-content-center pos1 ">
         <v-tabs-slider color="#006CA9"></v-tabs-slider>
-        <v-tab v-for="item in items" :key="item">
+        <v-tab v-for="item in items" :key="item" class="pad2">
             {{ item }}
         </v-tab>
     </v-tabs>
-    <v-tabs-items v-model="tab" light>
+    <v-tabs-items v-model="tab"  light>
         <v-tab-item v-for="item in items" :key="item">
             <div v-if="item==='Bank Transfer'">
                 <banktransfer />
@@ -78,13 +78,8 @@ export default {
     line-height: 22px;
     color: #0E0E0E;
 }
-.v-slide-group__wrapper {
-    contain: content;
-    display: inline;
-    flex: 1 1 auto;
-    overflow: hidden;
-}
+
 .pos1 {
-    margin-top: 20px;
+    margin-top: 20px; 
 }
 </style>

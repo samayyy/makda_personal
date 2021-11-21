@@ -9,7 +9,7 @@
     </div>
     <v-tabs v-model="tab" slider-size="5" class="d-flex justify-content-center pos1">
         <v-tabs-slider color="#006CA9"></v-tabs-slider>
-        <v-tab v-for="item in items" :key="item">
+        <v-tab v-for="item in items" :key="item" class="pad">
             {{ item }}
         </v-tab>
     </v-tabs>

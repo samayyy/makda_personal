@@ -76,7 +76,10 @@ export default {
     display: inline-block;
     margin-right: 10px;
 }
-
+.pos1{
+    display: flex;
+    justify-content: center;
+}
 .bg0 {
     width: 100px;
     height: 120px;

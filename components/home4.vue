@@ -1,27 +1,38 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
-    <div class="head1">Open Bets</div>
-    <div v-if="isEmpty === 0" class="open" >
-        <div v-for="(value, index) in  1" :key="index" :data-index="index" class="card">
-            <div class="d-flex justify-content-between">
-                <div class="name justify-self-start">{{card[index].name}}</div>
-                <div class="time justify-self-center">{{card[index].startTime}}</div>
-            </div>
-            <div class="d-flex justify-content-end">
-                <NuxtLink to="/games"><button class="button"><span class="btntext">View Bets</span></button></NuxtLink>
-            </div>
-            <div class="d-flex">
-                <div class="text1 p">Open Sheet</div>
-                <div class="text1 p"> Janatari</div>
-                <div class="text1"> Harf</div>
+    <div class="align2">
+        <div class="align">
+            <div class="head1">Open Bets</div>
+        </div>
+    </div>
+
+    <div v-if="isEmpty === 0">
+        <div class="open">
+            <div v-for="(value, index) in  1" :key="index" :data-index="index" class="card">
+                <div class="d-flex justify-content-between">
+                    <div class="name justify-self-start">{{card[index].name}}</div>
+                    <div class="time justify-self-center">{{card[index].startTime}}</div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <NuxtLink to="/games"><button class="button"><span class="btntext">View Bets</span></button></NuxtLink>
+                </div>
+                <div class="d-flex">
+                    <div class="text1 p">Open Sheet</div>
+                    <div class="text1 p"> Janatari</div>
+                    <div class="text1"> Harf</div>
+                </div>
             </div>
         </div>
-
+        <div class="open">
+            <NuxtLink to="/allbets"><button class="button2"><span class="btntext2">View All Bets</span></button></NuxtLink>
+        </div>
     </div>
     <div v-if="isEmpty === 1">
-            <p class="card card2"><span class="text-center">You have not placed any bet yet</span></p>
+        <div class="open">
+        <p class="card card2"><span class="text-center">You have not placed any bet yet</span></p>
         </div>
-    <NuxtLink to="/allbets"><button class="button2"><span class="btntext2">View All Bets</span></button></NuxtLink>
+        <button class="button2" type="button" disabled><NuxtLink to="/allbets"><span class="btntext2">View All Bets</span><NuxtLink to="/allbets"></button><NuxtLink to="/allbets">
+    </div>
 
 </div>
 </template>
@@ -31,57 +42,57 @@ export default {
     name: 'Home4',
     data() {
         return {
-            // card: {}
-            card: [{
-                    value: '',
-                    name: 'Royal Rajasthan',
-                    startTime: '07:30',
-                    endTime: '08:30',
-                    resultTime: '08:45',
-                    status: 'live',
-                },
-                {
-                    value: '',
-                    name: 'Amravati Gold',
-                    startTime: '08:30',
-                    endTime: '09:30',
-                    resultTime: '09:45',
-                    status: 'live',
+            card: {}
+            // card: [{
+            //         value: '',
+            //         name: 'Royal Rajasthan',
+            //         startTime: '07:30',
+            //         endTime: '08:30',
+            //         resultTime: '08:45',
+            //         status: 'live',
+            //     },
+            //     {
+            //         value: '',
+            //         name: 'Amravati Gold',
+            //         startTime: '08:30',
+            //         endTime: '09:30',
+            //         resultTime: '09:45',
+            //         status: 'live',
 
-                },
-                {
-                    value: '',
-                    name: 'Royal Rajasthan',
-                    startTime: '05:30',
-                    endTime: '07:15',
-                    resultTime: '07:30',
-                    status: 'expired',
+            //     },
+            //     {
+            //         value: '',
+            //         name: 'Royal Rajasthan',
+            //         startTime: '05:30',
+            //         endTime: '07:15',
+            //         resultTime: '07:30',
+            //         status: 'expired',
 
-                },
-                {
-                    value: '',
-                    name: 'Amravati Gold',
-                    startTime: '05:30',
-                    endTime: '06:15',
-                    resultTime: '06:30',
-                    status: 'expired',
+            //     },
+            //     {
+            //         value: '',
+            //         name: 'Amravati Gold',
+            //         startTime: '05:30',
+            //         endTime: '06:15',
+            //         resultTime: '06:30',
+            //         status: 'expired',
 
-                },
-                {
-                    value: '',
-                    name: 'Kashipur',
-                    startTime: '05:30',
-                    endTime: '06:15',
-                    resultTime: '06:30',
-                    status: 'expired',
+            //     },
+            //     {
+            //         value: '',
+            //         name: 'Kashipur',
+            //         startTime: '05:30',
+            //         endTime: '06:15',
+            //         resultTime: '06:30',
+            //         status: 'expired',
 
-                },
+            //     },
 
-            ],
+            // ],
 
         }
     },
-     computed: {
+    computed: {
         isEmpty() {
             let count = 0;
             if (Object.keys(this.card).length === 0) {
@@ -94,12 +105,15 @@ export default {
 </script>
 
 <style scoped>
+.open {
+    display: flex;
+    justify-content: center;
+    margin-left: -24px;
+}
+
 .head1 {
-    /* position: absolute; */
-    height: 25px;
     padding-left: 12px;
-    padding-top: 25px;
-    height: 30px;
+    padding-top: 20px;
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
@@ -111,21 +125,34 @@ export default {
 }
 
 .card {
-    /* position: absolute; */
     max-width: 400px;
     width: 84vw;
     height: 104px;
     margin-left: 12px;
-    margin-top: 25px;
+    margin-top: 10px;
     background: #FFFFFF;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
     padding: 10px 15px;
 }
-.card2{
+
+.card2 {
     display: flex;
     justify-content: center !important;
 }
+
+.align2 {
+    display: flex;
+    justify-content: center;
+    margin-left: -24px;
+
+}
+
+.align {
+    max-width: 600px;
+    width: 84vw;
+}
+
 .name {
     font-family: Poppins;
     font-style: normal;
@@ -190,6 +217,10 @@ export default {
     padding-right: 15px;
 }
 
+p {
+    margin-bottom: 0 !important;
+}
+
 .button2 {
     display: flex;
     flex-direction: row;
@@ -205,9 +236,6 @@ export default {
     margin-left: 15px;
     max-width: 400px;
     width: 84vw;
-    /* left: 0;
-    right: 0;
-    margin: auto; */
 }
 
 .btntext2 {

@@ -71,13 +71,18 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'wallet',
+          title: 'withdraw',
           to: '/withdraw'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'wallet',
+          title: 'deposit',
           to: '/deposit'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'bankdetails',
+          to: 'bankdetails'
         },
       ],
       miniVariant: false,

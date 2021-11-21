@@ -19,3 +19,42 @@ a{
     text-decoration: none !important;
 
 }
+@media only screen and (max-width: 359px){
+.v-slide-group__wrapper {
+    contain: content;
+    display: inline-block !important;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+.pad{
+    padding: 15px!important;
+}
+.pad2{
+    padding: 9px!important;
+}
+}
+@media only screen and (max-width: 332px){
+    .pad{
+        padding: 10px!important;
+    }
+    .pad2{
+        padding: 6px !important;
+    }
+    .opensheet {
+        padding-top: 20px !important;
+    }
+    .jantari{
+        padding-bottom: 20px !important;
+    }
+}
+@media only screen and (max-width: 317px){
+    .pad{
+        padding: 6px 0 !important;
+    }
+    .opensheet {
+        padding-top: 16px !important;
+    }
+    .jantari{
+        padding-bottom: 16px !important;
+    }
+}

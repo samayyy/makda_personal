@@ -4,7 +4,7 @@
         <NuxtLink to="/">
             <div class="back-icon" icon="akar-icons:arrow-left"></div>
         </NuxtLink>
-        <p class="headsignup">Sign UP</p>
+        <p class="headsignup">Sign Up</p>
     </div>
 
     <div class="logosignup1">

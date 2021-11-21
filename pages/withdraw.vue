@@ -12,7 +12,7 @@
     <form>
         <div class="head4">Enter Amount to Withdraw</div>
         <input type="number" class="formelement" placeholder="2000" required>
-        <NuxtLink to="/bankdetails"><button class="button"><span class="btntext">Make Payment</span></button></NuxtLink>
+        <button class="button" type="submit"><NuxtLink to="/bankdetails"><span class="btntext">Make Payment</span></NuxtLink></button>
     </form>
 </div>
 </template>
