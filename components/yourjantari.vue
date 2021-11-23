@@ -1,7 +1,7 @@
 <template>
 <div>
-    <form @submit.prevent="submit">
-        <div class="jantari">
+    <form v-if="total>0" @submit.prevent="submit">
+         <div class="jantari">
             <div class="d-flex justify-content-around">
                 <div v-for="(items,i) in jantari.slice(0, 5)" :key="i">
                     <div class="num">{{items.num}}</div>
@@ -196,26 +196,23 @@
             </div>
         </div>
     </form>
-    <div class="bottom">
-        <div class="text2"><span>TOTAL: &#8377;{{total}}</span></div>
-        <button class="button" @click="func(); "><span class="btntext">Submit</span></button>
+    <div v-if="total>0" class="bottom">
+        <div class="text2"><span>TOTAL:  &#8377;{{total}}</span></div>
     </div>
-    <div v-if="total>0">
-        <div v-show="modal_1" class="c-modal flexxx">
-            <div class="modalhead">Congratulations</div>
-            <div class="modaltext">Your bet has been placed</div>
-            <button type="submit" class="button3" @click="func2();"><span class="btntext3">Continue</span></button>
-
+    <div v-if="total===0" class="jantari">
+        <div>
+            <img class="img" src="../static/Group 202.svg" />
         </div>
-        <div v-show="modal_1" class="bg2" @click="func2();"></div>
+        <div class="text4">You have not placed a bet in this game</div>
     </div>
+
 
 </div>
 </template>
 
 <script>
 export default {
-    name: 'Jantari',
+    name: 'Yourjantari',
     data() {
         return {
             jantari: [{
@@ -268,7 +265,7 @@ export default {
                 },
                 {
                     num: 13,
-                    value: ""
+                    value: "30"
                 },
                 {
                     num: 14,
@@ -344,7 +341,7 @@ export default {
                 },
                 {
                     num: 32,
-                    value: ""
+                    value: "50"
                 },
                 {
                     num: 33,
@@ -420,7 +417,7 @@ export default {
                 },
                 {
                     num: 51,
-                    value: ""
+                    value: "150"
                 },
                 {
                     num: 52,
@@ -512,7 +509,7 @@ export default {
                 },
                 {
                     num: 74,
-                    value: ""
+                    value: "20"
                 },
                 {
                     num: 75,
@@ -631,22 +628,6 @@ export default {
             return value;
         }
     },
-    methods: {
-        func() {
-            if (this.total > 0) {
-                this.modal_1 = !this.modal_1
-            }
-
-        },
-        func2() {
-            if (this.total > 0) {
-                this.modal_1 = !this.modal_1
-                for (const field of this.jantari) {
-                    field.value = "";
-                }
-            }
-        }
-    },
 }
 </script>
 
@@ -727,123 +708,24 @@ input:focus {
     line-height: 27px;
     color: #000000;
 }
-
-.button {
+.img {
+    width: 224.56px;
+    height: 167.33px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    width: 90vw;
-    max-width: 330px;
-    height: 40px;
-    background: #006CA9;
-    border-radius: 20px;
-    color: white !important;
-    text-decoration: none !important;
-    margin-top: 20px;
-}
-
-.btntext {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
-}
-
-.c-modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
+    left: 0;
     right: 0;
-    left: 0;
     margin: auto;
-    width: 70%;
-    max-width: 300px;
-    height: 246px;
-    padding: 12px;
-    background-color: white;
-    border-radius: 5px;
-    /* background-color: rgba(#fff, .4); */
-    z-index: 10001;
-    opacity: 1;
-    transition: .6s;
 }
 
-.flexxx {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.modalhead {
-    width: 203px;
-    height: 38px;
+.text4 {
+    text-align: center;
+    padding-top: 25px;
     font-family: Nunito;
     font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 38px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
     color: #000000;
-}
-
-.modaltext {
-    width: 202px;
-    height: 25px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 25px;
-    color: #4D4D4D;
-
-}
-
-.button3 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    width: 80%;
-    max-width: 220px;
-    height: 40px;
-    background: #006CA9;
-    border-radius: 20px;
-    color: white !important;
-    text-decoration: none !important;
-}
-
-.btntext3 {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    color: #FFFFFF;
-}
-
-.bg2 {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .6);
-    z-index: 10000;
-    opacity: 1;
-    transition: .3s;
-}
-
-@media only screen and (max-width: 320px) {
-    .c-modal {
-        width: 90%;
-    }
 }
 </style>

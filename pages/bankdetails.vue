@@ -15,8 +15,7 @@
         <input type="text" class="formelement" placeholder="Account Holder Name" required>
         <input type="text" class="formelement" placeholder="IFSC CODE" required>
         <input type="text" class="formelement" placeholder="Branch" required>
-
-        <button class="button"><span class="btntext">Make Payment</span></button>
+        <button class="button"><span class="btntext">Withdraw Amount</span></button>
     </form>
 </div>
 </template>

@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'Matka-Taj Exchange',
-    title: 'Matka-Taj Exchange',
+    titleTemplate: 'Taj Exchange',
+    title: 'Taj Exchange',
     htmlAttrs: {
       lang: 'en'
     },
@@ -16,10 +16,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',}
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', }
     ],
     script: [
-      { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'}
+      { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' }
     ]
   },
 
@@ -30,6 +30,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -47,7 +48,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'nuxt-clipboard2'
+    'nuxt-clipboard2',
+ 
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -77,3 +79,4 @@ export default {
     transpile: ['vue-functional-calendar', '@iconify/vue2']
   }
 }
+

@@ -13,7 +13,7 @@
                     <div class="number">
                         {{number}}
                     </div>
-                    <button v-clipboard:copy="number" type="button">
+                    <button v-clipboard:copy="number" v-clipboard:success="onCopy" v-clipboard:error="onError" type="button">
                         <div class="iconpaste"></div>
                     </button>
                 </div>
@@ -22,7 +22,7 @@
                         <div class="head3">IFSC CODE</div>
                         <div class="d-flex align-items-center">
                             <div class="code">{{code}}</div>
-                            <button v-clipboard:copy="code" type="button">
+                            <button v-clipboard:copy="code" v-clipboard:success="onCopy" v-clipboard:error="onError" type="button">
                                 <div class="iconpaste"></div>
                             </button>
                         </div>
@@ -31,7 +31,7 @@
                         <div class="head3">Branch Name</div>
                         <div class="d-flex align-items-center">
                             <div class="name">{{name}}</div>
-                            <button v-clipboard:copy="name" type="button">
+                            <button v-clipboard:copy="name" v-clipboard:success="onCopy" v-clipboard:error="onError" type="button">
                                 <div class="iconpaste"></div>
                             </button>
                         </div>
@@ -78,6 +78,13 @@ export default {
         onFileChanged(e) {
             const files = e.target.files;
             this.files = files;
+        },
+        onCopy(e) {
+            alert('Copied')
+        },
+        onError(e) {
+            alert('Failed to copy the text to the clipboard')
+            console.log(e);
         }
     }
 }
@@ -299,7 +306,6 @@ input:focus {
     right: 0;
     margin: auto;
     margin-top: 25px;
-
 }
 
 .btntext {

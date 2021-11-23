@@ -3,23 +3,23 @@
     <div class="jantari">
         <div class="text1 ">Andar</div>
         <div class="d-flex justify-content-around">
-            <div v-for="(items,i) in andar.slice(0, 4)" :key="i">
+            <div v-for="(items,i) in andar.slice(0, 5)" :key="i">
                 <div class="num">{{items.num}}</div>
             </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="(items,index) in andar.slice(0, 4)" :key="index">
+            <div v-for="(items,index) in andar.slice(0, 5)" :key="index">
                 <input v-model="items.value" type="number" class="input" />
             </div>
 
         </div>
         <div class="d-flex justify-content-around p">
-            <div v-for="(items,i) in andar.slice(5, 9)" :key="i">
+            <div v-for="(items,i) in andar.slice(5, 10)" :key="i">
                 <div class="num">{{items.num}}</div>
             </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="(items,index) in andar.slice(5, 9)" :key="index">
+            <div v-for="(items,index) in andar.slice(5, 10)" :key="index">
                 <input v-model="items.value" type="number" class="input" />
             </div>
         </div>
@@ -27,23 +27,23 @@
     <div class="jantari">
         <div class="text1 ">Bahar</div>
         <div class="d-flex justify-content-around">
-            <div v-for="(items,i) in bahar.slice(0, 4)" :key="i">
+            <div v-for="(items,i) in bahar.slice(0, 5)" :key="i">
                 <div class="num">{{items.num}}</div>
             </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="(items,index) in bahar.slice(0, 4)" :key="index">
+            <div v-for="(items,index) in bahar.slice(0, 5)" :key="index">
                 <input v-model="items.value" type="number" class="input" />
             </div>
 
         </div>
         <div class="d-flex justify-content-around p">
-            <div v-for="(items,i) in bahar.slice(5, 9)" :key="i">
+            <div v-for="(items,i) in bahar.slice(5, 10)" :key="i">
                 <div class="num">{{items.num}}</div>
             </div>
         </div>
         <div class="d-flex justify-content-around ">
-            <div v-for="(items,index) in bahar.slice(5, 9)" :key="index">
+            <div v-for="(items,index) in bahar.slice(5, 10)" :key="index">
                 <input v-model="items.value" type="number" class="input" />
             </div>
         </div>
@@ -68,7 +68,12 @@
 export default {
     data() {
         return {
-            andar: [{
+            andar: [
+                {
+                    num: '00',
+                    value: ""
+                },
+                {
                     num: '01',
                     value: ""
                 },
@@ -102,14 +107,14 @@ export default {
                 },
                 {
                     num: '09',
-                    value: ""
-                },
-                {
-                    num: '00',
                     value: ""
                 },
             ],
             bahar: [{
+                    num: '00',
+                    value: ""
+                },
+                {
                     num: '01',
                     value: ""
                 },
@@ -143,10 +148,6 @@ export default {
                 },
                 {
                     num: '09',
-                    value: ""
-                },
-                {
-                    num: '00',
                     value: ""
                 },
             ],

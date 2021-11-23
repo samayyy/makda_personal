@@ -13,7 +13,7 @@
                 <div class="time">{{value.startTime}}</div>
             </div>
             <div class="d-flex justify-content-end">
-                <NuxtLink to="/games"><button class="button"><span class="btntext">View Bets</span></button></NuxtLink>
+                <NuxtLink to="/yourbets"><button class="button"><span class="btntext">View Bets</span></button></NuxtLink>
             </div>
             <div class="d-flex">
                 <div class="text1 p">Open Sheet</div>
@@ -97,13 +97,11 @@ export default {
 
 <style scoped>
 .head1 {
-    top: 40px;
-    position: absolute;
+    padding-top: 7px;
     width: 108px;
     left: 0;
     right: 0;
     margin: auto;
-    transform: translateY(-50%);
     text-align: center;
     font-family: Poppins;
     font-style: normal;
@@ -113,8 +111,7 @@ export default {
 }
 
 .open {
-    position: absolute;
-    top: 75px;
+    padding-top: 15px;
     left: 0;
     right: 0;
     margin: auto;
@@ -158,7 +155,6 @@ export default {
     line-height: 21px;
     display: flex;
     align-items: center;
-    /* text-align: end; */
     color: #8E8E8E;
     padding-right: 5px;
 
@@ -202,34 +198,5 @@ export default {
 
 .p {
     padding-right: 15px;
-}
-
-.button2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    position: absolute;
-    top: 820px;
-    width: 304px;
-    height: 37px;
-    background: #006CA9;
-    border-radius: 20px;
-    margin-left: 15px;
-    max-width: 400px;
-    width: 84vw;
-
-}
-
-.btntext2 {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
 }
 </style>

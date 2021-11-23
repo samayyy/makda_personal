@@ -1,33 +1,49 @@
 <template>
-<div v-if="$vuetify.breakpoint.smAndDown">
-    <div class="flexx1">
-        <NuxtLink to="/home">
-            <div class="back-icon" icon="akar-icons:arrow-left"></div>
-        </NuxtLink>
-    </div>
-    <div class="head1">All Results</div>
-    <div class="results">
-        <div v-for="(value, index) in  card.filter(card => card.date === '17/11/2021')" :key="index" :data-index="index" class="card">
-            <div class="card-text">
-                <div class="d-flex justify-content-around align-items-center">
-                    <div class="inner">
-                        <div class="name">{{value.city}}</div>
-                        <div class="d-flex justify-content-between pt-1">
-                            <div class="date">{{value.date}}</div>
-                            <div class="time ">{{value.startTime}} to {{value.endTime}}</div>
+<div>
+    <div>
+        <div class="flexx1">
+            <NuxtLink to="/home">
+                <div class="back-icon" icon="akar-icons:arrow-left"></div>
+            </NuxtLink>
+        </div>
+        <div class="head1">All Results</div>
+        <div class="results">
+            <div v-for="(value, index) in card.filter(
+            (card) => card.date === '17/11/2021'
+          )" :key="index" :data-index="index" class="card">
+                <div class="card-text">
+                    <div class="d-flex justify-content-around align-items-center">
+                        <div class="inner">
+                            <div class="name">{{ value.city }}</div>
+                            <div class="d-flex justify-content-between pt-1">
+                                <div class="date">{{ value.date }}</div>
+                                <div class="time">
+                                    {{ value.startTime }} to {{ value.endTime }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="circle" :class="{
+                  bg0: index % 1 == 0,
+                  bg1: index % 2 == 0,
+                  bg2: index % 3 == 0,
+                  bg3: index % 4 == 0,
+                }">
+                            {{ value.number }}
                         </div>
                     </div>
-                    <div class="circle" :class="{bg0: index%1==0, bg1: index%2==0, bg2: index%3 == 0,bg3: index%4==0}">{{value.number}}</div>
                 </div>
             </div>
         </div>
-    </div>
-    <div v-if="isEmpty === 1">
-        <p class="results card"><span class="text-center">No data found</span></p>
-    </div>
+        <div v-if="isEmpty === 1">
+            <p class="results card">
+                <span class="text-center">No data found</span>
+            </p>
+        </div>
 
-    <NuxtLink to="/pastresults"><button :class="{button: isEmpty===0, button2: isEmpty===1}"><span class="btntext">VIew Past Results</span></button></NuxtLink>
-
+        <NuxtLink to="/pastresults"><button :class="{ button: isEmpty === 0, button2: isEmpty === 1 }">
+                <span class="btntext">VIew Past Results</span>
+            </button></NuxtLink>
+    </div>
 </div>
 </template>
 
@@ -44,7 +60,6 @@ export default {
                     startTime: '07:30',
                     endTime: '09:30',
                     date: '16/11/2021',
-
                 },
                 {
                     value: '',
@@ -78,20 +93,18 @@ export default {
                     endTime: '11:00',
                     date: '16/11/2021',
                 },
-
             ],
-
         }
     },
     computed: {
         isEmpty() {
-            let count = 0;
+            let count = 0
             if (Object.keys(this.card).length === 0) {
-                count = 1;
+                count = 1
             }
-            return count;
-        }
-    }
+            return count
+        },
+    },
 }
 </script>
 
@@ -133,8 +146,8 @@ export default {
 }
 
 .results {
-    position: absolute;
-    top: 75px;
+    /* position: absolute; */
+    padding-top: 75px;
     left: 0;
     right: 0;
     margin: auto;
@@ -147,7 +160,7 @@ export default {
     left: 0;
     right: 0;
     margin: auto;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
     padding: 7px 10px;
@@ -169,7 +182,7 @@ export default {
 }
 
 .date {
-    /* width: 59px; */
+    width: 59px;
     height: 18px;
     font-family: Poppins;
     font-style: normal;
@@ -196,19 +209,19 @@ export default {
 }
 
 .bg0 {
-    background: #FF8585;
+    background: #ff8585;
 }
 
 .bg1 {
-    background: #FFE485;
+    background: #ffe485;
 }
 
 .bg2 {
-    background: #85DAFF;
+    background: #85daff;
 }
 
 .bg3 {
-    background: #DF85FF;
+    background: #df85ff;
 }
 
 .button {
@@ -217,14 +230,14 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 8px;
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     right: 0;
     margin: auto;
-    width: 304px;
-    height: 37px;
-    top: 370px;
-    background: #006CA9;
+    width: 85vw;
+    max-width: 330px;
+    margin-top: 25px;
+    background: #006ca9;
     border-radius: 20px;
 }
 
@@ -241,7 +254,7 @@ export default {
     width: 304px;
     height: 37px;
     top: 190px;
-    background: #006CA9;
+    background: #006ca9;
     border-radius: 20px;
 }
 
@@ -251,12 +264,11 @@ export default {
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    /* identical to box height */
 
     display: flex;
     align-items: center;
 
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 @media only screen and (max-width: 310px) {

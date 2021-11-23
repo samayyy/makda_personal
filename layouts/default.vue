@@ -22,12 +22,12 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: 'otp',
-          to: '/otp1'
+          to: '/otp'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'login1',
-          to: '/login1'
+          title: 'login',
+          to: '/login'
         },
         {
           icon: 'mdi-chart-bubble',

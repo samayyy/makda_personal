@@ -1,38 +1,30 @@
 <template>
 <div v-if="$vuetify.breakpoint.smAndDown">
-    <div class="align2">
-        <div class="align">
-            <div class="head1">Open Bets</div>
-        </div>
+    <div class="flexx1">
+        <NuxtLink to="/home">
+            <div class="back-icon" icon="akar-icons:arrow-left"></div>
+        </NuxtLink>
     </div>
-
-    <div v-if="isEmpty === 0">
-        <div class="open">
-            <div v-for="(value, index) in  1" :key="index" :data-index="index" class="card">
-                <div class="d-flex justify-content-between">
-                    <div class="name justify-self-start">{{card[index].name}}</div>
-                    <div class="time justify-self-center">{{card[index].startTime}}</div>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <NuxtLink to="/yourbets"><button class="button"><span class="btntext">View Bets</span></button></NuxtLink>
-                </div>
-                <div class="d-flex">
-                    <div class="text1 p">Open Sheet</div>
-                    <div class="text1 p"> Janatari</div>
-                    <div class="text1"> Harf</div>
-                </div>
+    <div class="head1">Open Bets</div>
+    <div class="open">
+        <div v-for="(value, index) in  card" :key="index" :data-index="index" class="card">
+            <div class="d-flex justify-content-between ">
+                <div class="name">{{value.name}}</div>
+                <div class="time">{{value.startTime}}</div>
             </div>
-        </div>
-        <div class="open">
-            <NuxtLink to="/allbets"><button class="button2"><span class="btntext2">View All Bets</span></button></NuxtLink>
+            <div class="d-flex justify-content-end">
+                <NuxtLink to="/yourbets"><button class="button"><span class="btntext">View Bets</span></button></NuxtLink>
+            </div>
+            <div class="d-flex">
+                <div class="text1 p">Open Sheet</div>
+                <div class="text1 p"> Janatari</div>
+                <div class="text1"> Harf</div>
+            </div>
         </div>
     </div>
     <div v-if="isEmpty === 1">
-        <div class="open">
-        <p class="card card2"><span class="text-center">You have not placed any bet yet</span></p>
-        </div>
+        <p class="open card card2"><span class="text-center">You have not placed any bet yet</span></p>
     </div>
-
 </div>
 </template>
 
@@ -104,52 +96,47 @@ export default {
 </script>
 
 <style scoped>
-.open {
-    display: flex;
-    justify-content: center;
-    margin-left: -24px;
-}
-
 .head1 {
-    padding-left: 12px;
-    padding-top: 20px;
+    top: 40px;
+    position: absolute;
+    width: 108px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(-50%);
+    text-align: center;
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    color: #000000;
+    line-height: 42px;
+}
+
+.open {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .card {
-    max-width: 400px;
+    max-width: 310px;
     width: 84vw;
     height: 104px;
-    margin-left: 12px;
-    margin-top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
     background: #FFFFFF;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
     padding: 10px 15px;
+    margin-bottom: 15px;
 }
 
 .card2 {
     display: flex;
     justify-content: center !important;
-}
-
-.align2 {
-    display: flex;
-    justify-content: center;
-    margin-left: -24px;
-
-}
-
-.align {
-    max-width: 600px;
-    width: 84vw;
 }
 
 .name {
@@ -171,8 +158,9 @@ export default {
     line-height: 21px;
     display: flex;
     align-items: center;
-    padding-right: 5px;
+    /* text-align: end; */
     color: #8E8E8E;
+    padding-right: 5px;
 
 }
 
@@ -216,18 +204,14 @@ export default {
     padding-right: 15px;
 }
 
-p {
-    margin-bottom: 0 !important;
-}
-
 .button2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 8px;
-    /* position: absolute; */
-    margin-top: 25px;
+    position: absolute;
+    top: 820px;
     width: 304px;
     height: 37px;
     background: #006CA9;
@@ -235,6 +219,7 @@ p {
     margin-left: 15px;
     max-width: 400px;
     width: 84vw;
+
 }
 
 .btntext2 {

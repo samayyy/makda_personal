@@ -221,8 +221,9 @@ input:focus {
     justify-content: center;
     align-items: center;
     padding: 8px;
-    width: 90vw;
+    width: 85vw;
     max-width: 330px;
+    /* min-width: 200px; */
     height: 40px;
     background: #006CA9;
     border-radius: 20px;

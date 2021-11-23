@@ -24,7 +24,7 @@
             </div>
         </div>
         <div v-if="isEmpty === 0">
-            <p class="upcoming card"><span class="text-center">No data found</span></p>
+            <p class="upcoming card"><span class="text-center">OOPS! No Game Found</span></p>
         </div>
     </div>
 </div>
@@ -109,9 +109,8 @@ export default {
 
 <style scoped>
 .head1 {
-    top: 40px;
-    position: absolute;
-    width: 108px;
+    padding-top: 60px;
+    width: 200px;
     left: 0;
     right: 0;
     margin: auto;
@@ -125,8 +124,7 @@ export default {
 }
 
 .calendar {
-    position: absolute;
-    top: 75px;
+
     left: 0;
     right: 0;
     margin: auto;
@@ -171,8 +169,7 @@ export default {
 }
 
 .results {
-    position: absolute;
-    top: 430px;
+    padding-top: 25px;
     left: 0;
     right: 0;
     margin: auto;
@@ -248,9 +245,9 @@ export default {
 .bg3 {
     background: #DF85FF;
 }
-
+/* 
 .results2 {
     position: absolute;
     top: 600px;
-}
+} */
 </style>

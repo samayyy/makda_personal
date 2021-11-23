@@ -17,16 +17,106 @@
     <div class="section2">
         <div class="d-flex justify-content-center">
             <NuxtLink to="/deposit"><button class="button">
-                <div class="bg"></div><span class="btntext">Deposit</span>
-            </button></NuxtLink>
+                    <div class="bg"></div><span class="btntext">Deposit</span>
+                </button></NuxtLink>
             <NuxtLink to="/withdraw"><button class="button2">
-                <div class="bg2"></div><span class="btntext2">Withdraw</span>
-            </button></NuxtLink>
+                    <div class="bg2"></div><span class="btntext2">Withdraw</span>
+                </button></NuxtLink>
         </div>
 
     </div>
+    <div class="section3">
+        <div class="align2">
+            <div class="align">
+                <div class="transaction">Transaction History</div>
+            </div>
+        </div>
+        <div v-for="(items, index) in transactiondetails.filter(transactiondetails => transactiondetails.status2 === 'Transaction Processing')" :key="index" class="abc">
+            <div class="card">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <div class="datetime paddingbot">
+                        <div class="d-flex ">
+                            <div class="date padd">{{items.date}}</div>
+                            <div class="time">{{items.time}}</div>
+                        </div>
+                    </div>
+                    <div class="statusa1">-{{items.status}}</div>
+                </div>
+                <div class="d-flex justify-content-between cardbottom">
+                    <div class="amount">&#8377;{{items.amount}}</div>
+                    <div class="statusb1">{{items.status2}}</div>
+                </div>
+            </div>
+        </div>
+        <div v-for="(items, index) in transactiondetails.filter(transactiondetails => transactiondetails.status2 === 'Pending')" :key="index" class="abc">
+            <div class="card">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <div class="datetime paddingbot">
+                        <div class="d-flex">
+                            <div class="date padd">{{items.date}}</div>
+                            <div class="time">{{items.time}}</div>
+                        </div>
+                    </div>
+                    <div class="statusa2">+{{items.status}}</div>
+                </div>
+                <div class="d-flex justify-content-between cardbottom">
+                    <div class="amount">&#8377;{{items.amount}}</div>
+                    <div class="statusb2">{{items.status2}}</div>
+                </div>
+            </div>
+        </div>
+        <div v-for="(items, index) in transactiondetails.filter(transactiondetails => transactiondetails.status2 === 'Completed')" :key="index" class="abc">
+            <div class="card">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <div class="datetime paddingbot">
+                        <div class="d-flex">
+                            <div class="date padd">{{items.date}}</div>
+                            <div class="time">{{items.time}}</div>
+                        </div>
+                    </div>
+                    <div class="statusa2">+{{items.status}}</div>
+                </div>
+                <div class="d-flex justify-content-between cardbottom">
+                    <div class="amount">&#8377;{{items.amount}}</div>
+                    <div class="statusb3">{{items.status2}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </template>
+
+<script>
+export default {
+    name: 'Wallet',
+    data() {
+        return {
+            transactiondetails: [{
+                    date: '20th November 2021',
+                    time: '14:21 PM',
+                    amount: '4000',
+                    status: 'Withdrawn',
+                    status2: 'Transaction Processing'
+                },
+                {
+                    date: '20th November 2021',
+                    time: '14:21 PM',
+                    amount: '300',
+                    status: 'Deposited',
+                    status2: 'Pending'
+                },
+                {
+                    date: '20th November 2021',
+                    time: '14:21 PM',
+                    amount: '6000',
+                    status: 'Deposited',
+                    status2: 'Completed'
+                },
+            ]
+        }
+    }
+}
+</script>
 
 <style scoped>
 .head1 {
@@ -111,7 +201,7 @@
     right: 0;
     margin: auto;
     margin-top: 40px;
-    margin-right: 5px;
+    margin-right: 10vw;
 
 }
 
@@ -160,6 +250,17 @@
     margin-top: 40px;
 }
 
+@media only screen and (max-width:350px) {
+    .button {
+        width: 120px;
+        margin-right: 10px;
+    }
+
+    .button {
+        width: 120px;
+    }
+}
+
 .btntext2 {
     /* width: 85px; */
     height: 27px;
@@ -169,8 +270,192 @@
     font-size: 18px;
     line-height: 27px;
     color: #006CA9;
-
     padding-left: 5px;
+}
 
+.section3 {
+    /* margin-left: 12px; */
+    padding-top: 25px;
+}
+
+.transaction {
+    width: 199px;
+    height: 30px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    padding-top: 25px;
+}
+
+.card {
+    max-width: 310px;
+    width: 90vw;
+    padding: 10px 10px !important;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    margin-top: 25px;
+}
+
+.paddingbot {
+    padding-bottom: 60px;
+}
+
+.datetime {
+    /* width: 188px; */
+    height: 21px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.statusa1 {
+    /* width: 96px; */
+    height: 21px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #E61717;
+}
+
+.amount {
+    width: 120px;
+    height: 36px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.statusb1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 167px;
+    height: 28px;
+    background: #FFD6A6;
+    border-radius: 12px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #E56E17;
+}
+
+.statusa2 {
+    /* width: 93px; */
+    height: 21px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #1E7C07;
+}
+
+.statusb2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 108px;
+    height: 28px;
+    background: #FFE600;
+    border-radius: 12px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #603A00;
+}
+
+.statusb3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 108px;
+    height: 28px;
+    background: #FFE600;
+    border-radius: 12px;
+    padding: 8px;
+    background: #C3CEAB;
+    border-radius: 12px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #1E7C07;
+}
+
+.padd {
+    padding-right: 5px;
+}
+
+.abc {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 330px) {
+    .datetime {
+        font-size: 11px;
+    }
+
+    .statusa1 {
+        font-size: 12px;
+    }
+
+    .amount {
+        font-size: 18px;
+        width: 80px;
+
+    }
+
+    .statusa2 {
+        font-size: 12px;
+    }
+
+    .paddingbot {
+        padding-bottom: 50px;
+    }
+}
+
+.align2 {
+    display: flex;
+    justify-content: center;
+    margin-left: -12px;
+
+}
+
+.align {
+    max-width: 310px;
+    width: 90vw;
 }
 </style>
